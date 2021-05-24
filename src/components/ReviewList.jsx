@@ -25,8 +25,8 @@ const ReviewList = ({reviews, setReviews}) => {
 // votes: 6
     return (
         <main>
-            <h1>
-                Reviews
+            <h1 className='fancy-title'>
+                Game Reviews
             </h1>
             <ul className='ul--no-bullet-list'>
                 {reviews.map(({review_id, review_body, review_img_url, votes, title, category , owner}) => {
