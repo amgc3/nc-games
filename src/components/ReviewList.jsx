@@ -44,6 +44,7 @@ const ReviewList = ({ reviews, setReviews }) => {
             title,
             category,
             owner,
+            comments_count
           }) => {
             return (
               <li key={review_id}>
@@ -56,6 +57,7 @@ const ReviewList = ({ reviews, setReviews }) => {
                   className="li--item--picture"
                   alt="review picture"
                 />
+                <p>Comments: {comments_count}</p>
                 <p>Votes: {votes}</p>
                 <p>Category: {category}</p>
               </li>
