@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 import CategorySelection from './CategorySelection';
 
@@ -7,6 +8,7 @@ const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
+    console.log(category)
     let url = '';
     if (category) {
       url = `https://annas-games-reviews.herokuapp.com/api/reviews?category=${category}`;
@@ -18,7 +20,7 @@ const ReviewList = ({ reviews, setReviews }) => {
       setReviews(response.data.reviews);
     });
   }, [category, setReviews]);
-
+  
   // reviews[0]
   // category: "strategy"
   // comments_count: "4"
@@ -34,6 +36,7 @@ const ReviewList = ({ reviews, setReviews }) => {
     <main>
       <h1 className="fancy-title">Game Reviews</h1>
       <CategorySelection setCategory={setCategory} />
+      {/* destructuring the review object instead of having to do review.review_id etc */}
       <ul className="ul--no-bullet-list">
         {reviews.map(
           ({
@@ -48,9 +51,11 @@ const ReviewList = ({ reviews, setReviews }) => {
           }) => {
             return (
               <li key={review_id}>
+                <Link to={`/reviews/${review_id}`} className='review-name-link' >
                 <h2>
                   {title} - {owner}
                 </h2>
+                </Link>
                 <p>{review_body}</p>
                 <img
                   src={review_img_url}
@@ -68,5 +73,8 @@ const ReviewList = ({ reviews, setReviews }) => {
     </main>
   );
 };
+
+
+
 
 export default ReviewList;

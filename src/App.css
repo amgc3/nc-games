@@ -106,5 +106,12 @@ input {
   text-align: center;
 }
 
+.review-name-link {
+  text-decoration: none;
+  color: #52555a;
+}
+.review-name-link:hover {
+  color: whitesmoke;
+}
 
 
