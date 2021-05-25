@@ -8,8 +8,10 @@ import {
 import './App.css';
 import Header from './components/Header';
 import Nav from './components/Nav'
-import ReviewList from './components/ReviewList'
 import Login from './components/Login'
+import ReviewList from './components/ReviewList'
+import Review from './components/Review'
+
 
 
 
@@ -25,9 +27,11 @@ function App() {
       <Route exact path='/'>
           <Login/>
         </Route>
-
         <Route exact path='/reviews'>
           <ReviewList reviews={reviews} setReviews={setReviews}/>
+        </Route>
+        <Route exact path='/reviews/:review_id'>
+          <Review reviews={reviews} />
         </Route>
       </Switch>
       </div>
