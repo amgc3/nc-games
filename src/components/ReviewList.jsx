@@ -17,7 +17,7 @@ const ReviewList = ({ reviews, setReviews }) => {
       console.log(response.data);
       setReviews(response.data.reviews);
     });
-  }, [category]);
+  }, [category, setReviews]);
 
   // reviews[0]
   // category: "strategy"
@@ -55,7 +55,7 @@ const ReviewList = ({ reviews, setReviews }) => {
                 <img
                   src={review_img_url}
                   className="li--item--picture"
-                  alt="review picture"
+                  alt="game"
                 />
                 <p>Comments: {comments_count}</p>
                 <p>Votes: {votes}</p>

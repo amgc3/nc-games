@@ -7,7 +7,9 @@ import {
 
 import './App.css';
 import Header from './components/Header';
+import Nav from './components/Nav'
 import ReviewList from './components/ReviewList'
+import Login from './components/Login'
 
 
 
@@ -17,9 +19,13 @@ function App() {
    
     <Router>
        <div className="App">
-     
+     <Nav/>
       <Header/>
       <Switch>
+      <Route exact path='/'>
+          <Login/>
+        </Route>
+
         <Route exact path='/reviews'>
           <ReviewList reviews={reviews} setReviews={setReviews}/>
         </Route>
