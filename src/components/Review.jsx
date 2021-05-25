@@ -15,7 +15,7 @@ const Review = () => {
         })
     }, [])
   return (
-    <main>
+    <main> 
         <h2>
           {review.title} - {review.owner}
         </h2>
