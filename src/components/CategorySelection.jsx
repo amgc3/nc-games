@@ -12,9 +12,10 @@ const CategorySelection = ({ setCategory }) => {
     <form className="category--selection-form" onSubmit={handleSubmit}>
       <label>Select Category: </label>
       <select
-        value={newCategory}
+        // value={newCategory}
         onChange={(event) => setNewCategory(event.target.value)}
       >
+        <option disabled selected value> -- select an option -- </option>
         <option value="strategy">Strategy</option>
         <option value="hidden-roles">Hidden Roles</option>
         <option value="dexterity">Dexterity</option>
