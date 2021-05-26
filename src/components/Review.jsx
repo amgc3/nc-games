@@ -2,21 +2,21 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios'
-// import { fetchReviewById } from '../utils/api';
+import { fetchReviewById } from '../utils/api';
 
 const Review = () => {
     const [review, setReview] = useState({});
 
     const { review_id } = useParams();
     useEffect(() => {
-        // fetchReviewById(review_id)
-        // .then((reviewFromApi) => {
-        //    setReview(reviewFromApi) 
-        // })
-        axios.get(`https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}`)
-        .then((response) => {
-            setReview(response.data.review);
+        fetchReviewById(review_id)
+        .then((reviewFromApi) => {
+           setReview(reviewFromApi) 
         })
+        // axios.get(`https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}`)
+        // .then((response) => {
+        //     setReview(response.data.review);
+        // })
     }, [review_id])
   return (
     <main> 
