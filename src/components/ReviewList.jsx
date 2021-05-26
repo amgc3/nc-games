@@ -3,22 +3,27 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 import CategorySelection from './CategorySelection';
+import { fetchReviewById, fetchReviews } from '../utils/api';
 
 const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    console.log(category)
-    let url = '';
-    if (category) {
-      url = `https://annas-games-reviews.herokuapp.com/api/reviews?category=${category}`;
-    } else {
-      url = 'https://annas-games-reviews.herokuapp.com/api/reviews';
-    }
-    axios.get(url).then((response) => {
-      console.log(response.data);
-      setReviews(response.data.reviews);
-    });
+    // console.log(category)
+    // let url = '';
+    // if (category) {
+    //   url = `https://annas-games-reviews.herokuapp.com/api/reviews?category=${category}`;
+    // } else {
+    //   url = 'https://annas-games-reviews.herokuapp.com/api/reviews';
+    // }
+    // axios.get(url).then((response) => {
+    //   console.log(response.data);
+    //   setReviews(response.data.reviews);
+    // });
+    fetchReviews(category)
+    .then((reviewsFromApi) => {
+      setReviews(reviewsFromApi)
+    })
   }, [category, setReviews]);
   
   // reviews[0]
