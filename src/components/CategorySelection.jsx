@@ -6,6 +6,7 @@ const CategorySelection = ({ setCategory }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setCategory(newCategory);
+    //setNewCategory(''); do i want this?
   };
 
   return (
@@ -15,7 +16,7 @@ const CategorySelection = ({ setCategory }) => {
         // value={newCategory}
         onChange={(event) => setNewCategory(event.target.value)}
       >
-        <option disabled selected value> -- select an option -- </option>
+        <option disabled selected value>  -- select an option -- </option>
         <option value="strategy">Strategy</option>
         <option value="hidden-roles">Hidden Roles</option>
         <option value="dexterity">Dexterity</option>
