@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 import CategorySelection from './CategorySelection';
-import { fetchReviewById, fetchReviews } from '../utils/api';
+import { fetchReviews } from '../utils/api';
 
 const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
@@ -60,13 +59,18 @@ const ReviewList = ({ reviews, setReviews }) => {
                 <h2>
                   {title} - {owner}
                 </h2>
-                </Link>
-                <p>{review_body}</p>
                 <img
                   src={review_img_url}
                   className="li--item--picture"
                   alt="game"
                 />
+                </Link>
+                <p>{review_body}</p>
+                {/* <img
+                  src={review_img_url}
+                  className="li--item--picture"
+                  alt="game"
+                /> */}
                 <p>Comments: {comments_count}</p>
                 <p>Votes: {votes}</p>
                 <p>Category: {category}</p>
