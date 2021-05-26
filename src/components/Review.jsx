@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import { fetchReviewById } from '../utils/api';
 import CommentList from './CommentList'
+import PostComment from './PostComment';
 
 const Review = () => {
     const [review, setReview] = useState({});
@@ -29,6 +30,7 @@ const Review = () => {
         <CommentList/>
         <p>Votes: {review.votes}</p>
         <p>Category: {review.category}</p>
+        <PostComment review_id={review_id}/>
     </main>
   );
 };

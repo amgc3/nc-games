@@ -65,6 +65,7 @@ const ReviewList = ({ reviews, setReviews }) => {
                   alt="game"
                 />
                 </Link>
+                <p>Category: {category}</p>
                 <p>{review_body}</p>
                 {/* <img
                   src={review_img_url}
@@ -73,7 +74,6 @@ const ReviewList = ({ reviews, setReviews }) => {
                 /> */}
                 <p>Comments: {comments_count}</p>
                 <p>Votes: {votes}</p>
-                <p>Category: {category}</p>
               </li>
             );
           }

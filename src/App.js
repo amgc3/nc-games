@@ -11,6 +11,7 @@ import Nav from './components/Nav'
 import Login from './components/Login'
 import ReviewList from './components/ReviewList'
 import Review from './components/Review'
+import CommentList from './components/CommentList'
 
 
 
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route exact path='/reviews/:review_id'>
           <Review reviews={reviews} />
+        </Route>
+        <Route exact path='/reviews/:review_id/comments'>
+          <CommentList />
         </Route>
       </Switch>
       </div>
