@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router';
 
-const PostComment = ({review_id}) => {
-    const history = useHistory();
+const CommentAdder = ({review_id, setComments}) => {
+  
   const [newComment, setNewComment] = useState({
     author: '',
     body: '',
@@ -18,7 +17,16 @@ const PostComment = ({review_id}) => {
       )
       .then((response) => {
         console.log(response, newComment);
-        history.push(`reviews/${review_id}`)
+        setComments((currentComments) => {
+          return [response.data.comment, ...currentComments];
+        })
+        // clear form
+        setNewComment({
+          author: '',
+          body: '',
+          votes: 0,
+        });
+        
       });
   };
   return (
@@ -33,6 +41,7 @@ const PostComment = ({review_id}) => {
             return { ...currentComment, author: event.target.value };
           });
         }}
+        required
       ></input>
       <br/>
       <label htmlFor="new-comment-body">Comment: </label>
@@ -45,10 +54,11 @@ const PostComment = ({review_id}) => {
             return { ...currentComment, body: event.target.value };
           });
         }}
+        required
       ></input>
       <button className='comment-button'>Submit </button>
     </form>
   );
 };
 
-export default PostComment;
+export default CommentAdder;
