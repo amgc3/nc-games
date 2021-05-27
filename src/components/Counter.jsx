@@ -15,7 +15,7 @@ const Counter = ({setReview, review}) => {
           setIsLoading(false);
           console.log(response.data.review.votes)
           setCount(response.data.review.votes);
-          setReview((currentReview) =>  { return {...currentReview, votes: count}});
+          setReview((currentReview) =>  { return {...currentReview, votes: response.data.review.votes}});
           console.log(review);
       })
       
@@ -24,7 +24,7 @@ const Counter = ({setReview, review}) => {
   return (
     <div className='counter'>
         {isLoading && <p>Loading...</p>}
-        <h5>Votes: { count }</h5>
+        {/* <h5>Votes: { count }</h5> */}
       <button onClick={() => vote(1)}>Like</button>
       
       <button onClick={() => vote(-1)}>Dislike</button>
