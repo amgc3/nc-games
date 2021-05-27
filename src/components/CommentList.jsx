@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router';
+import {fetchComments} from '../utils/api'
 import CommentAdder from './CommentAdder';
 
 const CommentList = () => {
@@ -8,13 +8,9 @@ const CommentList = () => {
   const { review_id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}/comments`
-      )
-      .then((response) => {
-        console.log(response.data.comments[0]);
-        setComments(response.data.comments);
+    fetchComments(review_id)
+      .then((commentsFromApi) => {
+        setComments(commentsFromApi);
       });
   }, [review_id]);
 

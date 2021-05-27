@@ -17,3 +17,8 @@ export const fetchReviewById = (id) => {
     .get(`${BASE_URL}/reviews/${id}`)
     .then((response) => response.data.review);
 };
+
+export const fetchComments = (id) => {
+    return axios.get(`${BASE_URL}/reviews/${id}/comments`)
+    .then((response) => response.data.comments);
+}
