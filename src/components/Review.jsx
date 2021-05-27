@@ -23,7 +23,7 @@ const Review = () => {
         {review.title} - {review.owner}
       </h2>
       <p>Votes: {review.votes}</p>
-      <Counter votes={review.votes}/>
+      <Counter review={review} setReview={setReview}/>
       <img
         src={review.review_img_url}
         className="li--item--picture"

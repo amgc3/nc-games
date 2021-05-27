@@ -1,16 +1,30 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useParams } from 'react-router';
 
-const Counter = ({votes}) => {
-  const [count, setCount] = useState(0);
-  console.log(votes);
+const Counter = ({setReview, review}) => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [count, setCount] = useState(review.votes);
+  const {review_id} = useParams()
+  console.log(review.votes);
   
   const vote = (value) => {
-      setCount(currentCount => currentCount + value)
+      axios
+      .patch(`https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}`, {inc_votes: value})
+      .then((response) => {
+          setIsLoading(false);
+          console.log(response.data.review.votes)
+          setCount(response.data.review.votes);
+          setReview((currentReview) =>  { return {...currentReview, votes: count}});
+          console.log(review);
+      })
+      
   } 
 
   return (
     <div className='counter'>
-        <h5>Votes: { count  + votes}</h5>
+        {isLoading && <p>Loading...</p>}
+        <h5>Votes: { count }</h5>
       <button onClick={() => vote(1)}>Like</button>
       
       <button onClick={() => vote(-1)}>Dislike</button>
