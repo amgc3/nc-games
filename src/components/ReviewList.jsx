@@ -8,17 +8,7 @@ const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    // console.log(category)
-    // let url = '';
-    // if (category) {
-    //   url = `https://annas-games-reviews.herokuapp.com/api/reviews?category=${category}`;
-    // } else {
-    //   url = 'https://annas-games-reviews.herokuapp.com/api/reviews';
-    // }
-    // axios.get(url).then((response) => {
-    //   console.log(response.data);
-    //   setReviews(response.data.reviews);
-    // });
+    
     fetchReviews(category)
     .then((reviewsFromApi) => {
       setReviews(reviewsFromApi)
@@ -67,11 +57,6 @@ const ReviewList = ({ reviews, setReviews }) => {
                 </Link>
                 <p>Category: {category}</p>
                 <p>{review_body}</p>
-                {/* <img
-                  src={review_img_url}
-                  className="li--item--picture"
-                  alt="game"
-                /> */}
                 <p>Comments: {comments_count}</p>
                 <p>Votes: {votes}</p>
               </li>
