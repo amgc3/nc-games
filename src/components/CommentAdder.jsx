@@ -56,6 +56,18 @@ const CommentAdder = ({review_id, setComments}) => {
         }}
         required
       ></input>
+      {/* should I use textarea? */}
+      {/* <textarea
+        type="text"
+        id="new-comment-body"
+        value={newComment.body}
+        onChange={(event) => {
+          setNewComment((currentComment) => {
+            return { ...currentComment, body: event.target.value };
+          });
+        }}
+        required
+      /> */}
       <button className='comment-button'>Submit </button>
     </form>
   );
