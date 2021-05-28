@@ -2,11 +2,12 @@ import axios from "axios"
 
 const BASE_URL = 'https://annas-games-reviews.herokuapp.com/api';
 
-export const fetchReviews = (category) => {
+export const fetchReviews = (category, sort_by) => {
     return axios
     .get(`${BASE_URL}/reviews`, {
         params: {
-            category: category
+            category,
+            sort_by
         }
     })
     .then((response) => response.data.reviews)

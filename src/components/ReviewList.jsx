@@ -6,13 +6,14 @@ import { fetchReviews } from '../utils/api';
 
 const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
-  const [sortTerm, setSortTerm] = useState('');
+  const [sortTerm, setSortTerm] = useState('created_at');
 
   useEffect(() => {
-    fetchReviews(category).then((reviewsFromApi) => {
+    fetchReviews(category, sortTerm).then((reviewsFromApi) => {
+
       setReviews(reviewsFromApi);
     });
-  }, [category, setReviews]);
+  }, [category, sortTerm, setReviews]);
 
   // reviews[0]
   // category: "strategy"
