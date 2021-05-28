@@ -45,7 +45,7 @@ li {
   max-width: 200px;
 }
 p {
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   padding:0.5em;
 }
 .Nav-bar {
@@ -116,4 +116,12 @@ input {
   color: whitesmoke;
 }
 
+button {
+  margin: 5px;
+  font-size: 15px;
+  width: 4em;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: 1px solid #52555a;
+}
 

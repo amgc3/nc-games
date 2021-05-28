@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import {BiDislike, BiLike} from 'react-icons/bi'
 
 const Counter = ({setReview, review}) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -23,11 +24,11 @@ const Counter = ({setReview, review}) => {
 
   return (
     <div className='counter'>
-        {isLoading && <p>Loading...</p>}
+        {/* {isLoading && <p>Loading...</p>} */}
         {/* <h5>Votes: { count }</h5> */}
-      <button onClick={() => vote(1)}>Like</button>
+      <button BiLike className='count' onClick={() => vote(1)}><BiLike/></button>
       
-      <button onClick={() => vote(-1)}>Dislike</button>
+      <button BiDislike className='count' onClick={() => vote(-1)}><BiDislike/></button>
     </div>
   );
 };
