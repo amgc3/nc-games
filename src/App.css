@@ -116,6 +116,9 @@ input {
 .review-name-link:hover {
   color: whitesmoke;
 }
+#review-body {
+  margin: 0px 150px;
+}
 
 button {
   margin: 5px;

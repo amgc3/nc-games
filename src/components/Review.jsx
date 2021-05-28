@@ -29,7 +29,7 @@ const Review = () => {
         className="li--item--picture"
         alt="game"
       />
-      <p>{review.review_body}</p>
+      <p id='review-body'>{review.review_body}</p>
       <p>Comments: {review.comments_count}</p>
       <CommentList />
       <p>Category: {review.category}</p>

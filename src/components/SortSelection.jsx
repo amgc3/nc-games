@@ -11,7 +11,7 @@ const SortSelection = ({ setSortTerm }) => {
     <form className="category--selection-form" onSubmit={handleSubmit}>
       <label>Sort By: </label>
       <select
-        // value={newSortTerm}
+        value={newSortTerm}
         onChange={(event) => setNewSortTerm(event.target.value)}
       >
         <option disabled selected value>

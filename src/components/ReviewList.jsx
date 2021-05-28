@@ -4,9 +4,10 @@ import SortSelection from './SortSelection';
 import CategorySelection from './CategorySelection';
 import { fetchReviews } from '../utils/api';
 
-const ReviewList = ({ reviews, setReviews }) => {
+const ReviewList = () => {
   const [category, setCategory] = useState('');
   const [sortTerm, setSortTerm] = useState('created_at');
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetchReviews(category, sortTerm).then((reviewsFromApi) => {

@@ -10,7 +10,7 @@ import Review from './components/Review';
 import CommentList from './components/CommentList';
 
 function App() {
-  const [reviews, setReviews] = useState([]);
+  
   return (
     <Router>
       <div className="App">
@@ -21,10 +21,10 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/reviews">
-            <ReviewList reviews={reviews} setReviews={setReviews} />
+            <ReviewList />
           </Route>
           <Route exact path="/reviews/:review_id">
-            <Review reviews={reviews} />
+            <Review />
           </Route>
           <Route exact path="/reviews/:review_id/comments">
             <CommentList />
