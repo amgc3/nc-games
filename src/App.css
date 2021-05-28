@@ -30,6 +30,7 @@
 
 .ul--no-bullet-list {
   list-style-type: none;
+  margin: 0px 300px;
   padding: 0px;
 }
 
@@ -38,7 +39,7 @@ li {
 	border-color: whitesmoke;
   border-style: solid;
   background: #b9e65f;
-  padding: 0px;
+  padding: 0px 75px;
 }
 
 .li--item--picture {
