@@ -32,7 +32,7 @@ const Review = () => {
       <p id='review-body'>{review.review_body}</p>
       <p>Comments: {review.comments_count}</p>
       <CommentList />
-      <p>Category: {review.category}</p>
+      <p id='category'>Category: {review.category}</p>
     </main>
   );
 };

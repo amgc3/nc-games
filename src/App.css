@@ -119,9 +119,12 @@ input {
 #review-body {
   margin: 0px 150px;
 }
+#category {
+  margin: 0px;
+}
 
 button {
-  margin: 5px;
+  margin: 10px;
   font-size: 15px;
   width: 4em;
   border-radius: 5px;
@@ -137,5 +140,13 @@ select {
  .selection {
   display: flex;
   justify-content: center;
+}
+.Post-comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+label {
+  padding-left: 7px;
 }
 
