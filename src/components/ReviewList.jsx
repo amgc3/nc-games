@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import SortSelection from './SortSelection';
 import CategorySelection from './CategorySelection';
 import { fetchReviews } from '../utils/api';
 
 const ReviewList = ({ reviews, setReviews }) => {
   const [category, setCategory] = useState('');
+  const [sortTerm, setSortTerm] = useState('');
 
   useEffect(() => {
-    
-    fetchReviews(category)
-    .then((reviewsFromApi) => {
-      setReviews(reviewsFromApi)
-    })
+    fetchReviews(category).then((reviewsFromApi) => {
+      setReviews(reviewsFromApi);
+    });
   }, [category, setReviews]);
-  
+
   // reviews[0]
   // category: "strategy"
   // comments_count: "4"
@@ -29,7 +28,11 @@ const ReviewList = ({ reviews, setReviews }) => {
   return (
     <main>
       <h1 className="fancy-title">Game Reviews</h1>
-      <CategorySelection setCategory={setCategory} />
+      <span className='selection'>
+        <CategorySelection setCategory={setCategory} />
+        <SortSelection setSortTerm={setSortTerm} />
+      </span>
+
       {/* destructuring the review object instead of having to do review.review_id etc */}
       <ul className="ul--no-bullet-list">
         {reviews.map(
@@ -41,19 +44,19 @@ const ReviewList = ({ reviews, setReviews }) => {
             title,
             category,
             owner,
-            comments_count
+            comments_count,
           }) => {
             return (
               <li key={review_id}>
-                <Link to={`/reviews/${review_id}`} className='review-name-link' >
-                <h2>
-                  {title} - {owner}
-                </h2>
-                <img
-                  src={review_img_url}
-                  className="li--item--picture"
-                  alt="game"
-                />
+                <Link to={`/reviews/${review_id}`} className="review-name-link">
+                  <h2>
+                    {title} - {owner}
+                  </h2>
+                  <img
+                    src={review_img_url}
+                    className="li--item--picture"
+                    alt="game"
+                  />
                 </Link>
                 <p>Category: {category}</p>
                 <p>{review_body}</p>
@@ -67,8 +70,5 @@ const ReviewList = ({ reviews, setReviews }) => {
     </main>
   );
 };
-
-
-
 
 export default ReviewList;
