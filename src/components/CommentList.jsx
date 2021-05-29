@@ -15,7 +15,7 @@ const CommentList = () => {
   }, [review_id]);
 
   return (
-    <main>
+    <section>
       <ul className="ul--no-bullet-list">
         {comments.map(({ comment_id, author, body, votes }) => {
           return (
@@ -28,14 +28,8 @@ const CommentList = () => {
         })}
         <CommentAdder review_id={review_id} setComments={setComments} />
       </ul>
-    </main>
+    </section>
   );
 };
-
-// author: "cooljmessy"
-// body: "Now this is a story all about how, board games turned my life upside down"
-// comment_id: 5
-// created_at: "2021-01-18T10:24:05.410Z"
-// votes: 13
 
 export default CommentList;

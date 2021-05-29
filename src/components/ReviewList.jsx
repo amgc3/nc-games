@@ -5,30 +5,22 @@ import CategorySelection from './CategorySelection';
 import { fetchReviews } from '../utils/api';
 
 const ReviewList = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState('');
   const [sortTerm, setSortTerm] = useState('created_at');
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetchReviews(category, sortTerm).then((reviewsFromApi) => {
-
+    fetchReviews(category, sortTerm)
+    .then((reviewsFromApi) => {
+      setIsLoading(false);
       setReviews(reviewsFromApi);
     });
   }, [category, sortTerm, setReviews]);
 
-  // reviews[0]
-  // category: "strategy"
-  // comments_count: "4"
-  // created_at: "1970-01-10T02:56:38.400Z"
-  // designer: "Emerson Matsuuchi"
-  // owner: "tickle122"
-  // review_body: "This game reminds me of the stress-free environment described in a song sung by a crab in the famous film about a mermaid. Plenty of coral collecting, and reef building to keep you entertained "
-  // review_id: 18
-  // review_img_url: "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg"
-  // title: "Reef"
-  // votes: 6
   return (
     <main>
+      {isLoading && <p>Loading...</p>}
       <h1 className="fancy-title">Game Reviews</h1>
       <span className='selection'>
         <CategorySelection setCategory={setCategory} />

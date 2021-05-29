@@ -13,7 +13,7 @@ const CategorySelection = ({ setCategory }) => {
     <form className="category--selection-form" onSubmit={handleSubmit}>
       <label>Select Category: </label>
       <select
-        // value={newCategory}
+        //value={newCategory}
         onChange={(event) => setNewCategory(event.target.value)}
       >
         <option disabled selected value>  -- select an option -- </option>
@@ -24,6 +24,7 @@ const CategorySelection = ({ setCategory }) => {
         <option value="roll-and-write">Roll & Write</option>
         <option value="deck-building">Deck Building</option>
         <option value="engine-building">Engine Building</option>
+        <option value=''>All Categories</option>
       </select>
       <button className="category-selection-button">Submit</button>
     </form>
