@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 
-
+// this login form is work in progress. At the moment it console.logs the 
+// username and email address
+// I still need to implement the login endpoint in the backend api
 const Login = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
 
-    //const email = "thiandthat@gmail.com"
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(username, email)
