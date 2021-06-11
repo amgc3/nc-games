@@ -16,11 +16,13 @@ const Login = () => {
         <form className='Login-form' onSubmit={handleSubmit}>
             <label htmlFor='username' >Username: </label>
             <input type='text' id='username' value={username} 
+            required
             onChange={(event) => {
                 setUsername(event.target.value)
             }} />
             <label htmlFor='email'>Email: </label>
             <input type='email' id='email' value={email}
+            required
             onChange={(event) => {
                 setEmail(event.target.value)
             }} />
