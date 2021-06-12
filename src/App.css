@@ -1,13 +1,8 @@
 .App {
 	text-align: center;
-	/* display: grid;
-	align-items: center; */
-	/* grid-template-columns: 30% 70%; */
-	/* grid-template-rows: min-content auto;
-	grid-template-areas: 'header header' 'search content '; */
 	background:yellowgreen;
   min-height:100vh;
-  /* max-height: 100%; */
+  
 }
 
 .App-header {
@@ -28,19 +23,30 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 .ul--no-bullet-list {
   list-style-type: none;
-  margin: 0px 300px;
   padding: 0px;
 }
+@media only screen and (min-width: 800px)  {
+  .ul--no-bullet-list {
+    margin: 0px 300px; 
 
-li {
-	margin: 15px 20px;
+  }
+  #review-body {
+  margin: 0px 150px;
+}
+
+}
+
+ li {
+	margin: 15px 10px;
 	border-color: whitesmoke;
   border-style: solid;
   background: #b9e65f;
   padding: 0px 75px;
-}
+} 
+
 
 .li--item--picture {
   max-width: 200px;
@@ -116,9 +122,7 @@ input {
 .review-name-link:hover {
   color: whitesmoke;
 }
-#review-body {
-  margin: 0px 150px;
-}
+
 #category {
   margin: 0px;
 }
@@ -131,6 +135,11 @@ button {
   background-color: whitesmoke;
   border: 1px solid #52555a;
 }
+.comment-button {
+  width: 6em;
+  padding:8px;
+}
+
 .count {
   font-size: 20px;
 }
@@ -148,5 +157,15 @@ select {
 }
 label {
   padding-left: 7px;
+}
+#new-comment-body {
+  border-color: whitesmoke;
+  background: whitesmoke;
+  margin: 0px 0px 0px 10px;
+  border-radius: 5px;
+  width: 399px;
+  height: 39px;
+  padding: 10px;
+  font-size: 15px;
 }
 
