@@ -23,3 +23,8 @@ export const fetchComments = (id) => {
     return axios.get(`${BASE_URL}/reviews/${id}/comments`)
     .then((response) => response.data.comments);
 }
+
+export const postComment = (id, newComment) => {
+    return axios.post(`${BASE_URL}/reviews/${id}/comments`, newComment)
+    .then((response) => response.data.comment)
+}

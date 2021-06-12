@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { postComment } from '../utils/api';
 
 const CommentAdder = ({review_id, setComments}) => {
   
@@ -9,26 +10,43 @@ const CommentAdder = ({review_id, setComments}) => {
     votes: 0,
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .post(
-        `https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}/comments`, newComment
-      )
-      .then((response) => {
-        console.log(response, newComment);
-        setComments((currentComments) => {
-          return [response.data.comment, ...currentComments];
-        })
-        // clear form
-        setNewComment({
-          author: '',
-          body: '',
-          votes: 0,
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      postComment(review_id, newComment)
+        .then((commentFromApi) => {
+          console.log(commentFromApi);
+          setComments((currentComments) => {
+            return [...currentComments, commentFromApi];
+          })
+          // clear form
+          setNewComment({
+            author: '',
+            body: '',
+            votes: 0,
+          });
+          
         });
+    };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   axios
+  //     .post(
+  //       `https://annas-games-reviews.herokuapp.com/api/reviews/${review_id}/comments`, newComment
+  //     )
+  //     .then((response) => {
+  //       console.log(response, newComment);
+  //       setComments((currentComments) => {
+  //         return [response.data.comment, ...currentComments];
+  //       })
+  //       // clear form
+  //       setNewComment({
+  //         author: '',
+  //         body: '',
+  //         votes: 0,
+  //       });
         
-      });
-  };
+  //     });
+  // };
   return (
     <form className="Post-comment-form" onSubmit={handleSubmit}>
       
