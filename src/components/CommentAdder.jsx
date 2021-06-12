@@ -31,6 +31,21 @@ const CommentAdder = ({review_id, setComments}) => {
   };
   return (
     <form className="Post-comment-form" onSubmit={handleSubmit}>
+      
+      
+      <label htmlFor="new-comment-body">Comment: </label>
+      <textarea
+        type="text"
+        id="new-comment-body"
+        value={newComment.body}
+        onChange={(event) => {
+          setNewComment((currentComment) => {
+            return { ...currentComment, body: event.target.value };
+          });
+        }}
+        required
+      />
+     <br/>
       <label htmlFor="new-comment-author">Author: </label>
       <input
         type="text"
@@ -43,31 +58,6 @@ const CommentAdder = ({review_id, setComments}) => {
         }}
         required
       ></input>
-      <br/>
-      <label htmlFor="new-comment-body">Comment: </label>
-      <input
-        type="text"
-        id="new-comment-body"
-        value={newComment.body}
-        onChange={(event) => {
-          setNewComment((currentComment) => {
-            return { ...currentComment, body: event.target.value };
-          });
-        }}
-        required
-      ></input>
-      {/* should I use textarea? */}
-      {/* <textarea
-        type="text"
-        id="new-comment-body"
-        value={newComment.body}
-        onChange={(event) => {
-          setNewComment((currentComment) => {
-            return { ...currentComment, body: event.target.value };
-          });
-        }}
-        required
-      /> */}
       <button className='comment-button'>Submit </button>
     </form>
   );
