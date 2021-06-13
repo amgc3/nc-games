@@ -5,8 +5,7 @@ import {BiDislike, BiLike} from 'react-icons/bi'
 
 const Counter = ({setReview, review}) => {
   const [setCount] = useState(review.votes);
-  const {review_id} = useParams()
-  console.log(review.votes);
+  const {review_id} = useParams();
   
   const vote = (value) => {
       axios
@@ -14,7 +13,6 @@ const Counter = ({setReview, review}) => {
       .then((response) => {
           setCount(response.data.review.votes);
           setReview((currentReview) =>  { return {...currentReview, votes: response.data.review.votes}});
-          console.log(review);
       })
       
   } 
