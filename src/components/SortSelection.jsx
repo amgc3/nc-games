@@ -12,11 +12,13 @@ const SortSelection = ({ setSortTerm }) => {
       <label>Sort By: </label>
       <select
         // value={newSortTerm}
+        defaultValue ={'DEFAULT'}
         onChange={(event) => setNewSortTerm(event.target.value)}
       >
-        <option disabled selected value>
+        {/* <option disabled selected value>
           -- select an option --
-        </option>
+        </option> */}
+         <option value="DEFAULT" disabled> -- select an option -- </option>
         <option value="title">Title</option>
         <option value="created_at">Created at</option>
         <option value="comments_count">Comments Count</option>

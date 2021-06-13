@@ -14,9 +14,11 @@ const CategorySelection = ({ setCategory }) => {
       <label>Select Category: </label>
       <select
         //value={newCategory}
+        defaultValue = {'DEFAULT'}
         onChange={(event) => setNewCategory(event.target.value)}
       >
-        <option disabled selected value>  -- select an option -- </option>
+        {/* <option disabled selected value>  -- select an option -- </option> */}
+        <option value="DEFAULT" disabled>  -- select an option -- </option>
         <option value="strategy">Strategy</option>
         <option value="hidden-roles">Hidden Roles</option>
         <option value="dexterity">Dexterity</option>
