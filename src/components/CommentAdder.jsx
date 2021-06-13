@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { postComment } from '../utils/api';
 
-const CommentAdder = ({review_id, setComments}) => {
-  
+const CommentAdder = ({ review_id, setComments }) => {
   const [newComment, setNewComment] = useState({
     author: '',
     body: '',
     votes: 0,
   });
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      postComment(review_id, newComment)
-        .then((commentFromApi) => {
-          console.log(commentFromApi);
-          setComments((currentComments) => {
-            return [...currentComments, commentFromApi];
-          })
-          // clear form
-          setNewComment({
-            author: '',
-            body: '',
-            votes: 0,
-          });
-          
-        });
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    postComment(review_id, newComment).then((commentFromApi) => {
+      console.log(commentFromApi);
+      setComments((currentComments) => {
+        return [...currentComments, commentFromApi];
+      });
+      // clear form
+      setNewComment({
+        author: '',
+        body: '',
+        votes: 0,
+      });
+    });
+  };
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   axios
@@ -44,13 +40,11 @@ const CommentAdder = ({review_id, setComments}) => {
   //         body: '',
   //         votes: 0,
   //       });
-        
+
   //     });
   // };
   return (
     <form className="Post-comment-form" onSubmit={handleSubmit}>
-      
-      
       <label htmlFor="new-comment-body">Comment: </label>
       <textarea
         type="text"
@@ -63,7 +57,7 @@ const CommentAdder = ({review_id, setComments}) => {
         }}
         required
       />
-     <br/>
+      <br />
       <label htmlFor="new-comment-author">Author: </label>
       <input
         type="text"
@@ -76,7 +70,7 @@ const CommentAdder = ({review_id, setComments}) => {
         }}
         required
       ></input>
-      <button className='comment-button'>Submit </button>
+      <button className="comment-button">Submit </button>
     </form>
   );
 };
