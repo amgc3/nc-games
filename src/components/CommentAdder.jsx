@@ -62,15 +62,12 @@ const CommentAdder = ({ review_id, setComments }) => {
       <input
         type="text"
         id="new-comment-author"
-        // hardcoded until login is sorted as it only works
-        // for registered users
-        value='jessjelly'
-        // value={newComment.author}
-        // onChange={(event) => {
-        //   setNewComment((currentComment) => {
-        //     return { ...currentComment, author: event.target.value };
-        //   });
-        // }}
+        value={newComment.author}
+        onChange={(event) => {
+          setNewComment((currentComment) => {
+            return { ...currentComment, author: event.target.value };
+          });
+        }}
         required
       ></input>
       <button className="comment-button">Submit </button>
